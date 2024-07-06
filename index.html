@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/simplebar.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Relife Body</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <nav class="navbar">
+                    <img src="static/images/landingPage1/logo.svg" class="logo">
+                    <div class="nav">
+                        <img src="static/images/landingPage1/logo.svg" class="logoNav">
+                        <ul class="nav-menu">
+                            <li><a href="#">Головна</a></li>
+                            <li><a href="#">Про нас</a></li>
+                            <li><a href="#">Відгуки</a></li>
+                            <li><a href="#">Контакти</a></li>
+                        </ul>
+
+                        <div class="social-icons2">
+                            <img src="static/images/landingPage1/facebook.svg" alt="Facebook">
+                            <img src="static/images/landingPage1/insta.svg" alt="Instagram">
+                            <img src="static/images/landingPage1/twitter.svg" alt="Twitter">
+                            <img src="static/images/landingPage1/linkedin.svg" alt="LinkedIn">
+                        </div>
+                        <div class="language-switch">
+                            <span>UA</span>
+                            <div class="vertical-line"></div>
+                            <span>EN</span>
+                        </div>
+                    </div>
+                    <div class="hamburger-menu">
+                        <span></span>
+                    </div>
+                </nav>
+
+                <div class="hero-text">
+                    <h1>Ідеальний застосунок<br>для рахунку калорій</h1>
+                    <h4>Ваш особистий помічник у калорійному рахунку - просто, зручно та надійно</h4>
+                </div>
+                <div class="social-icons">
+                    <img src="static/images/landingPage1/facebook.svg" alt="Facebook">
+                    <img src="static/images/landingPage1/insta.svg" alt="Instagram">
+                    <img src="static/images/landingPage1/twitter.svg" alt="Twitter">
+                    <img src="static/images/landingPage1/linkedin.svg" alt="LinkedIn">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="phone-photo">
+        <img src="static/images/landingPage1/mockupsLeft.png" class="m">
+        <img src="static/images/landingPage1/mockupsCentral.png" class="mCentral">
+        <img src="static/images/landingPage1/mockupsRight.png" class="m">
+    </div>
+
+    <script>
+        function preventScroll(e) {
+            e.preventDefault();
+        }
+
+        function preventScrollKeys(e) {
+            const keys = [32, 37, 38, 39, 40]; // Space and arrow keys
+            if (keys.includes(e.keyCode)) {
+                e.preventDefault();
+            }
+        }
+
+        function toggleMenu() {
+            const nav = document.querySelector('.nav');
+            const html = document.documentElement;
+
+            document.querySelector('.hamburger-menu').classList.toggle('active');
+            nav.classList.toggle('open');
+            html.classList.toggle('no-scroll');
+
+            if (nav.classList.contains('open')) {
+                window.addEventListener('wheel', preventScroll, { passive: false });
+                window.addEventListener('touchmove', preventScroll, { passive: false });
+                window.addEventListener('keydown', preventScrollKeys);
+            } else {
+                window.removeEventListener('wheel', preventScroll, { passive: false });
+                window.removeEventListener('touchmove', preventScroll, { passive: false });
+                window.removeEventListener('keydown', preventScrollKeys);
+            }
+        }
+
+        document.querySelector('.hamburger-menu').addEventListener('click', toggleMenu);
+    </script>
+</body>
+</html>
